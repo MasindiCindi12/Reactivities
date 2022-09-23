@@ -31,7 +31,7 @@ const Activities ={
     details: (id: string) => request.get<Activity>(`/activities/${id}`),
     create: (activity: Activity) => request.post<void>('/activities', activity),
     update: (activity: Activity) => axios.put<void>(`/activities/${activity.id}`,activity),
-    delete: (id: string) => request.get<void>(`/activities/${id}`) 
+    delete: (id: string) => axios.delete<void>(`/activities/${id}`) 
 }
 
 const agent = {
