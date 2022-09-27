@@ -1,10 +1,11 @@
 
 import { observer } from "mobx-react-lite";
 import React from "react";
-import { Grid } from "semantic-ui-react";
+import { Grid, GridColumn } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import ActivityDetails from "../details/ActivityDetails";
 import ActivityForm from "../form/ActivityForm";
+import ActivityFilters from "./ActivityFilters";
 import ActivityList from "./ActivityList";
 
 
@@ -24,6 +25,12 @@ export default observer( function ActivityDashboard()
                 <ActivityDetails  />}
                 {editMode &&
                 <ActivityForm/>}
+
+                {/* Section 9 */}
+                <ActivityFilters/>
+            </Grid.Column>
+            <Grid.Column>
+                <ActivityFilters/>
             </Grid.Column>
         </Grid>
     )

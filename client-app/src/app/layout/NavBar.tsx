@@ -7,9 +7,10 @@ export default function NavBar(){
     return(
         <Menu inverted fixed='top'>
             <Container>
-                <Menu.Item header>
+                <Menu.Item >
                     <img src="/assets/logo.png" alt="logo" style={{marginRight:'10px'}}/>
                 </Menu.Item>
+                <Menu.Item name= 'Reactivities'/>
                 <Menu.Item name= 'Activities'/>
                 <Menu.Item>
                     <Button onClick={() => activityStore.openForm()} positive content='Create Activity'/>
