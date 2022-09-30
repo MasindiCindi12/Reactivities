@@ -7,7 +7,7 @@ return(
 
     <>
     <Menu vertical size='large' style={{width: '100%', MarginTop: 25}}>
-        <Header icon='filter' attached color='teal' content='Filter'/>
+        <Header icon='filter' attached color='teal' content='Filters'/>
         <Menu.Item content='All Activities'/>
         <Menu.Item content='I am Going'/>
         <Menu.Item content='I am Hosting'/>
