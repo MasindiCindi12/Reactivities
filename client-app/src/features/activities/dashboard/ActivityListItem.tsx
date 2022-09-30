@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Button, Icon, Item, Label, Segment } from 'semantic-ui-react'
 import { Activity } from '../../../app/models/activity'
 import { useStore } from '../../../app/stores/store'
@@ -29,7 +30,7 @@ export default function ActivityListItem({activity}: Props){
                     <Item>
                         <Item.Image size='tiny' circular src='/asstets/user.png' />
                         <Item.Content>
-                            <Item.Header as={{}} to={`/activities/${activity.id}`}>
+                            <Item.Header as={{Link}} to={`/activities/${activity.id}`}>
                                 {activity.title}
                             </Item.Header>
                             <Item.Description> Hosted by Bob</Item.Description>
@@ -50,7 +51,7 @@ export default function ActivityListItem({activity}: Props){
             <Segment clear>
                 <span>{activity.description}</span>
                 <Button
-                 as={{}}
+                 as={{Link}}
                  to={`activities/${activity.id}`}
                  color='teal'
                  floated='right'
