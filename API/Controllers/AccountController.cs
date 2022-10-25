@@ -15,7 +15,7 @@ namespace API.Controllers
 {
     [AllowAnonymous]
     [ApiController]
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
@@ -49,12 +49,14 @@ namespace API.Controllers
         {
             if(await _userManager.Users.AnyAsync(x => x.Email == registerDto.Email))
             {
-                return BadRequest("Email Token");
+                ModelState.AddModelError("email", " Email Taken");
+                return ValidationProblem();
             }
 
             if(await _userManager.Users.AnyAsync(x => x.Email == registerDto.UserName))
             {
-                return BadRequest("Username Token");
+                ModelState.AddModelError("username", "Username taken");
+                return ValidationProblem();
             }
 
             var user = new AppUser{
@@ -71,6 +73,7 @@ namespace API.Controllers
             }
             return BadRequest("Problem registering user");
         }
+        
         [Authorize]
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
